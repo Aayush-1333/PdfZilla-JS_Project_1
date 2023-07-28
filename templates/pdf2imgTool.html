@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PdfZilla - PDF Tools Page</title>
+    <link rel="stylesheet" href="dist\output.css" type="text/css">
+</head>
+
+<body class="bg-light-pattern dark:bg-dark-pattern">
+
+    <!-- ========= Navbar ======== -->
+    <nav class="container-fluid flex 
+    bg-gradient-to-r from-blue-600 to-blue-400 
+    dark:from-purple-800 dark:to-purple-400 p-10 items-center">
+        <h1 class="title grow-[0.05] text-white font-bold">PdfZilla</h1>
+        <a class="grow-[0.05] text-white hover:text-yellow-300" href="/">Home</a>
+        <a class="grow-[0.05] text-white hover:text-yellow-300" href="/">About</a>
+        <a class="grow-[0.05] text-white hover:text-yellow-300" href="/">Help and Support</a>
+
+        <div class="flex grow justify-end">
+            <button type="button" class="rounded-full text-white bg-gradient-to-tr from-fuchsia-700 to-fuchsia-400 border border-black p-2
+            hover:border-white" onclick="toggleStyle()">Toggle Theme</button>
+        </div>
+    </nav>
+
+    <!-- ============== Tool view ============== -->
+    <div class="flex justify-center items-center">
+
+        <form method="post" class="container-fluid m-10 p-10 rounded-lg
+        bg-gradient-to-r from-amber-600 to-amber-700 border-4 border-black
+        dark:border-white" action="/pdf2img" enctype="multipart/form-data">
+
+            <h1 class="mb-6 text-2xl text-white font-bold underline">PDF to JPG</h1>
+            <hr>
+            <br>
+            <label class="text-white font-bold text-xl" for="">Upload your file</label>
+            <br>
+            <input name="pdfs" class="file:text-white my-2 file:rounded-full 
+                file:bg-gradient-to-r from-violet-800 to-violet-500
+                file:p-2 text-white file:border-black hover:file:border-white" type="file" accept=".pdf">
+            <br>
+            <button
+                class="bg-gradient-to-r from-green-800 to-green-500 text-white rounded-full p-2 my-2 border-2 border-black hover:border-white"
+                type="submit">Convert PDF</button>
+        </form>
+
+    </div>
+</body>
+
+<script type="text/javascript">
+
+    var html = document.getElementsByTagName('html')[0];
+
+    if (localStorage.getItem('theme') == 'light')
+        html.classList.remove('dark');
+    else
+        html.classList.add('dark');
+
+    const toggleStyle = () => {
+        html.classList.toggle('dark');
+
+        if (localStorage.getItem('theme') == 'light')
+            localStorage.setItem('theme', 'dark');
+        else
+            localStorage.setItem('theme', 'light');
+    }
+
+</script>
+
+</html>

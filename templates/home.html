@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PdfZilla - Homepage</title>
+    <link rel="stylesheet" href="dist\output.css" type="text/css">
+</head>
+
+<body class="bg-light-pattern dark:bg-dark-pattern">
+
+    <nav class="container-fluid flex 
+    bg-gradient-to-r from-blue-600 to-blue-400 
+    dark:from-purple-800 dark:to-purple-400 p-10 items-center">
+        <h1 class="title grow-[0.05] text-white font-bold">PdfZilla</h1>
+        <a class="grow-[0.05] text-white hover:text-yellow-300" href="/">Home</a>
+        <a class="grow-[0.05] text-white hover:text-yellow-300" href="/">About</a>
+        <a class="grow-[0.05] text-white hover:text-yellow-300" href="/">Help and Support</a>
+
+        <div class="flex grow justify-end">
+            <button type="button" class="rounded-full text-white bg-gradient-to-tr from-fuchsia-700 to-fuchsia-400 border border-black p-2
+            hover:border-white" onclick="toggleStyle()">Toggle Theme</button>
+        </div>
+    </nav>
+
+    <!-- ================== Alert ================== -->
+    <h1 class="p-2 bg-yellow-400 dark:bg-green-600 dark:text-white font-semibold">Welcome to PdfZilla! Your online PDF
+        tools web app!!</h1>
+
+    <div class="flex justify-around flex-wrap my-20">
+
+        <div class="bg-gradient-to-tr from-green-700 to-green-500 p-10 rounded-lg border-4 border-black">
+            <h1 class="text-2xl font-bold underline">PDF Merger</h1>
+            <br>
+            <p class="break-words font-bold">
+                Upload PDFs to merge them into a single PDF
+            </p>
+            <br>
+            <a href="/merge-tool"><button
+                    class="bg-gradient-to-tr from-blue-700 to-blue-500 text-white p-3 rounded-full border-2 hover:border-white">View
+                    Tool</button></a>
+        </div>
+
+        <div class="bg-gradient-to-tr from-yellow-700 to-yellow-400 p-10 rounded-lg border-4 border-black">
+            <h1 class="text-2xl font-bold underline">PDF to PNG</h1>
+            <br>
+            <p class="break-words font-bold">
+                Upload your PDF file and convert to a PNG file
+            </p>
+            <br>
+            <a href="/pdf2img-tool"><button
+                    class="bg-gradient-to-tr from-blue-700 to-blue-500 text-white p-3 rounded-full border-2 hover:border-white">View
+                    Tool</button></a>
+        </div>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+
+    var html = document.getElementsByTagName('html')[0];
+
+    if (!localStorage.getItem('theme')) {
+        localStorage.setItem('theme', 'light');
+    }
+
+    else {
+        if (localStorage.getItem('theme') == 'light')
+            html.classList.remove('dark');
+        else
+            html.classList.add('dark');
+    }
+
+    const toggleStyle = () => {
+        html.classList.toggle('dark');
+
+        if (localStorage.getItem('theme') == 'light')
+            localStorage.setItem('theme', 'dark');
+        else
+            localStorage.setItem('theme', 'light');
+    }
+
+</script>
+
+</html>
